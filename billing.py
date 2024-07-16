@@ -5,16 +5,16 @@ class BillClass:
      def __init__(self,root):
           self.root=root
           self.root.geometry("1525x780+0+0") #set to my screen dimensions
-          self.root.title("Monate & Sons Scrapyard | Developed By Rebokile Sello")
+          self.root.title("Inventory Management System | Developed By Rebokile Sello")
           self.root.config(bg="white")
           #===title
           self.icon_image = Image.open("Logo.png")
           self.icon_photo = ImageTk.PhotoImage(self.icon_image)
-          title=Label(self.root,text="Monate & Sons Scrapyard",image=self.icon_photo, compound=LEFT, font=("times new roman", 40, "bold"), bg="#010c48", fg="white", anchor="w", padx=20).place(x=0,y=0,relwidth=1, height=70)
+          title=Label(self.root,text="Inventory Management System",image=self.icon_photo, compound=LEFT, font=("times new roman", 40, "bold"), bg="#010c48", fg="white", anchor="w", padx=20).place(x=0,y=0,relwidth=1, height=70)
           #===Login/out
           btn_logount=Button(self.root, text="Logout", font=("times new roman", 15, "bold"), bg="yellow", cursor="hand2").place(x=1330, y=10, height=50, width=150)
           #===clock
-          self.lbl_clock=Label(self.root,text="Welcome to Monate & Sons Scrapyard\t\t Date: DD/MM/YYYY \t\t Time: HH:MM:SS", font=("times new roman", 15), bg="#4d636d", fg="white")
+          self.lbl_clock=Label(self.root,text="Welcome to Inventory Management System\t\t Date: DD/MM/YYYY \t\t Time: HH:MM:SS", font=("times new roman", 15), bg="#4d636d", fg="white")
           self.lbl_clock.place(x=0, y=70, relwidth=1, height=30)
 
           #===Product Frame
@@ -26,7 +26,7 @@ class BillClass:
 
           #===Product Search
           ProductFrame2=Frame(ProductFrame1, bd=2, relief=RIDGE, background="white")
-          ProductFrame2.place(x=2, y=42, width=498, height=90)
+          ProductFrame2.place(x=2, y=42, width=496, height=90)
 
           lbl_search=Label(ProductFrame2, text="Search Product | By Name", font=("times new roman", 20, "bold"), background="white",).place(x=2, y=5)
 
@@ -63,7 +63,7 @@ class BillClass:
           self.ProductTable.column("sale_price", width=60)
           self.ProductTable.column("car_name", width=80)
           self.ProductTable.column("model", width=80)
-          self.ProductTable.column("quantity", width=50)
+          self.ProductTable.column("quantity", width=60)
           self.ProductTable.column("status", width=50) 
           #self.ProductTable.bind("<ButtonRelease-1>", self.get_data)
           self.ProductTable.pack(fill=BOTH, expand=1)
@@ -93,15 +93,35 @@ class BillClass:
           #===Calculator
           self.var_cal_input=StringVar()
           CalFrame=Frame(Cal_CartFrame, bd=2, relief=RIDGE, bg="white")
-          CalFrame.place(x=0, y=0, width=500, height=235)
+          CalFrame.place(x=0, y=0, width=290, height=250)
 
-          self.txt_cal_input=Entry(CalFrame, textvariable=self.var_cal_input, font=("arial", 15, "bold"), width=21, bd=10, relief=GROOVE)
-          self.txt_cal_input.grid(row=0, columnspan=4)
+          txt_cal_input=Entry(CalFrame, textvariable=self.var_cal_input, font=("arial", 15, "bold"), width=24, bd=10, relief=GROOVE, state="readonly", justify=RIGHT)
+          txt_cal_input.grid(row=0, columnspan=4)
+
+          btn_7=Button(CalFrame,text="7", font=("arial", 15, "bold"),command=lambda:self.get_input(7), bd=2, width=5, pady=5, cursor="hand2").grid(row=1, column=0)
+          btn_8=Button(CalFrame,text="8", font=("arial", 15, "bold"),command=lambda:self.get_input(8), bd=2, width=5, pady=5, cursor="hand2").grid(row=1, column=1)
+          btn_9=Button(CalFrame,text="9", font=("arial", 15, "bold"),command=lambda:self.get_input(9), bd=2, width=5, pady=5, cursor="hand2").grid(row=1, column=2)
+          btn_sum=Button(CalFrame,text="+", font=("arial", 15, "bold"),command=lambda:self.get_input("+"), bd=2, width=5, pady=5, cursor="hand2").grid(row=1, column=3)
+
+          btn_4=Button(CalFrame,text="4", font=("arial", 15, "bold"),command=lambda:self.get_input(4), bd=2, width=5, pady=5, cursor="hand2").grid(row=2, column=0)
+          btn_5=Button(CalFrame,text="5", font=("arial", 15, "bold"),command=lambda:self.get_input(5), bd=2, width=5, pady=5, cursor="hand2").grid(row=2, column=1)
+          btn_6=Button(CalFrame,text="6", font=("arial", 15, "bold"),command=lambda:self.get_input(6), bd=2, width=5, pady=5, cursor="hand2").grid(row=2, column=2)
+          btn_subtract=Button(CalFrame,text="-", font=("arial", 15, "bold"),command=lambda:self.get_input("-"), bd=2, width=5, pady=5, cursor="hand2").grid(row=2, column=3)
+
+          btn_1=Button(CalFrame,text="1", font=("arial", 15, "bold"),command=lambda:self.get_input(1), bd=2, width=5, pady=5, cursor="hand2").grid(row=3, column=0)
+          btn_2=Button(CalFrame,text="2", font=("arial", 15, "bold"),command=lambda:self.get_input(2), bd=2, width=5, pady=5, cursor="hand2").grid(row=3, column=1)
+          btn_3=Button(CalFrame,text="3", font=("arial", 15, "bold"),command=lambda:self.get_input(3), bd=2, width=5, pady=5, cursor="hand2").grid(row=3, column=2)
+          btn_multiply=Button(CalFrame,text="*", font=("arial", 15, "bold"),command=lambda:self.get_input("*"), bd=2, width=5, pady=5, cursor="hand2").grid(row=3, column=3)
+
+          btn_0=Button(CalFrame,text="0", font=("arial", 15, "bold"),command=lambda:self.get_input(0), bd=2, width=5, pady=5, cursor="hand2").grid(row=4, column=0)
+          btn_clear=Button(CalFrame,text="C", font=("arial", 15, "bold"), command=self.clear_cal, bd=2, width=5, pady=5, cursor="hand2").grid(row=4, column=1)
+          btn_divide=Button(CalFrame,text="/", font=("arial", 15, "bold"),command=lambda:self.get_input("/"), bd=2, width=5, pady=5, cursor="hand2").grid(row=4, column=2)
+          btn_equal=Button(CalFrame,text="=", font=("arial", 15, "bold"),command=self.perform_cal, bd=2, width=5, pady=5, cursor="hand2").grid(row=4, column=3)
 
           #===Cart
           CartFrame = Frame(Cal_CartFrame, bd=2, relief=RIDGE)
-          CartFrame.place(x=0, y=236
-          , width=500, height=245)
+          CartFrame.place(x=0, y=251
+          , width=500, height=230)
           cartTitle=Label(CartFrame, text="Cart \t Total Products: [0]", font=("goudy old style",15), bg="lightgray"). pack(side=TOP, fill=X)
 
           scrolly = Scrollbar(CartFrame, orient=VERTICAL)
@@ -127,7 +147,7 @@ class BillClass:
           self.CartTable.column("sale_price", width=60)
           self.CartTable.column("car_name", width=80)
           self.CartTable.column("model", width=80)
-          self.CartTable.column("quantity", width=50)
+          self.CartTable.column("quantity", width=60)
           self.CartTable.column("status", width=50) 
           #self.CartTable.bind("<ButtonRelease-1>", self.get_data)
           self.CartTable.pack(fill=BOTH, expand=1)
@@ -166,6 +186,17 @@ class BillClass:
           btn_update_cart=Button(Add_CartWidgetsFrame, text="Update", font=("times new roman", 13), bg="#b7cedc", cursor="hand2").place(x=400, y=50, width=80,height=25)
           btn_clear_cart=Button(Add_CartWidgetsFrame, text="Clear", font=("times new roman", 13), bg="lightgray", cursor="hand2").place(x=400, y=80, width=80,height=25)
 
+     #===All Functions
+     def get_input(self, num):
+          xnum=self.var_cal_input.get()+str(num)
+          self.var_cal_input.set(xnum)
+
+     def clear_cal(self):
+          self.var_cal_input.set("")
+
+     def perform_cal(self):
+          result=self.var_cal_input.get()
+          self.var_cal_input.set(eval(result))
 
 if __name__=="__main__":
     root=Tk()
