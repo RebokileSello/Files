@@ -9,16 +9,16 @@ class IMS:
      def __init__(self,root):
           self.root=root
           self.root.geometry("1350x700+0+0") #set to my screen dimensions
-          self.root.title("Monate & Sons Scrapyard | Developed By Rebokile Sello")
+          self.root.title("Inventory Management System | Developed By Rebokile Sello")
           self.root.config(bg="white")
           #===title
           self.icon_image = Image.open("Logo.png")
           self.icon_photo = ImageTk.PhotoImage(self.icon_image)
-          title=Label(self.root,text="Monate & Sons Scrapyard",image=self.icon_photo, compound=LEFT, font=("times new roman", 40, "bold"), bg="#010c48", fg="white", anchor="w", padx=20).place(x=0,y=0,relwidth=1, height=70)
+          title=Label(self.root,text="Inventory Management System",image=self.icon_photo, compound=LEFT, font=("times new roman", 40, "bold"), bg="#010c48", fg="white", anchor="w", padx=20).place(x=0,y=0,relwidth=1, height=70)
           #===Login/out
           btn_logount=Button(self.root, text="Logout", font=("times new roman", 15, "bold"), bg="yellow", cursor="hand2").place(x=1150, y=10, height=50, width=150)
           #===clock
-          self.lbl_clock=Label(self.root,text="Welcome to Monate & Sons Scrapyard\t\t Date: DD/MM/YYYY \t\t Time: HH:MM:SS", font=("times new roman", 15), bg="#4d636d", fg="white")
+          self.lbl_clock=Label(self.root,text="Welcome to Inventory Management System\t\t Date: DD/MM/YYYY \t\t Time: HH:MM:SS", font=("times new roman", 15), bg="#4d636d", fg="white")
           self.lbl_clock.place(x=0, y=70, relwidth=1, height=30)
           #====Left Menu
           self.MenuLogo=Image.open("Menu.jpeg")
@@ -60,7 +60,7 @@ class IMS:
 
 
           #===footer
-          lbl_footer=Label(self.root,text="Monate & Sons Scrapyard | Developed By Rebokile Sello\nAvailable @ +26657415133 & rebokiles35@gmail.com", font=("times new roman", 12), bg="#4d636d", fg="white").pack(side=BOTTOM, fill=X)
+          lbl_footer=Label(self.root,text="Inventory Management System | Developed By Rebokile Sello\nAvailable @ +26657415133 & rebokiles35@gmail.com", font=("times new roman", 12), bg="#4d636d", fg="white").pack(side=BOTTOM, fill=X)
 
 
 #==============================

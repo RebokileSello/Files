@@ -298,6 +298,7 @@ class productClass:
                messagebox.showerror("Error", f"Error due to: {str(ex)}", parent=self.root)
           finally:
                con.close()
+               
      def search(self):
           con=sqlite3.connect(database=r'pos.db')
           cur=con.cursor()
