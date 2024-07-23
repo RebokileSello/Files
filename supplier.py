@@ -2,7 +2,7 @@ from tkinter import *
 from PIL import Image, ImageTk
 from tkinter import ttk, messagebox
 import sqlite3
-
+#we are going to change this to the Car file where we will store all the cars that come into the businss such that when we add the products salvaged from a car, we just select the particular car and this will help us prepare the finacial statements and check how much a partical car made
 class supplierClass:
      def __init__(self, root):
           self.root = root

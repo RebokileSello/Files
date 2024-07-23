@@ -159,7 +159,6 @@ class BillClass:
           self.CartTable.pack(fill=BOTH, expand=1)
           #self.CartTable.bind("<ButtonRelease-1>", self.get_data)
 
-
           #===Cart Buttons
           self.var_barcode=StringVar()
           self.var_product_name=StringVar()
@@ -194,7 +193,6 @@ class BillClass:
           btn_update_cart=Button(Add_CartWidgetsFrame, text="Update", command=self.addto_update_cart, font=("times new roman", 13), bg="#b7cedc", cursor="hand2").place(x=400, y=50, width=80,height=25)
           btn_clear_cart=Button(Add_CartWidgetsFrame, text="Clear", font=("times new roman", 13), bg="lightgray", cursor="hand2").place(x=400, y=80, width=80,height=25)
 
-
      #===Billing Area
           billFrame=Frame(self.root, bd=2, relief=RIDGE, bg="white")
           billFrame.place(x=1017, y=100, width=505, height=500)
@@ -207,18 +205,17 @@ class BillClass:
           self.txt_bill_area.pack(fill=BOTH, expand=1)
           scrolly.config(command=self.txt_bill_area.yview)
 
-
      #===Billing Buttons
           billMenuFrame=Frame(self.root, bd=2, relief=RIDGE, bg="white")
           billMenuFrame.place(x=1017, y=600, width=505, height=114)
 
-          self.lbl_amount=Label(billMenuFrame, text="Gross. M\n[0]", font=("goudy old style", 15, "bold"), bg="#3f51b5", fg="white")
+          self.lbl_amount=Label(billMenuFrame, text="Gross. M\n0.0", font=("goudy old style", 15, "bold"), bg="#3f51b5", fg="white")
           self.lbl_amount.place(x=2, y=2, width=120, height=50)
 
-          btn_discount=Button(billMenuFrame, text="Discount\n[5%]", command=self.discount, font=("goudy old style", 15, "bold"), bg="#8bc34a", fg="white", cursor="hand2")
+          btn_discount=Button(billMenuFrame, text="Discount\n5%", command=self.discount, font=("goudy old style", 15, "bold"), bg="#8bc34a", fg="white", cursor="hand2")
           btn_discount.place(x=123, y=2, width=120, height=50)
 
-          self.lbl_net_pay=Label(billMenuFrame, text="Total. M\n[0]", font=("goudy old style", 15, "bold"), bg="#607d8b", fg="white")
+          self.lbl_net_pay=Label(billMenuFrame, text="Total. M\n0.0", font=("goudy old style", 15, "bold"), bg="#607d8b", fg="white")
           self.lbl_net_pay.place(x=244, y=2, width=120, height=50)
 
           btn_print=Button(billMenuFrame, text="Print", font=("goudy old style", 15, "bold"), bg="lightgreen", fg="white", cursor="hand2")
@@ -235,8 +232,6 @@ class BillClass:
 
           self.show()
      
-
-
 
      #===All Functions
      def get_input(self, num):
@@ -349,7 +344,6 @@ class BillClass:
      def discount(self):
           self.var_net_pay=self.var_net_pay-(self.var_bill_amount*0.05)
           self.lbl_net_pay.config(text=f"Total. M\n{str(self.var_net_pay)}")
-
 
      def show_cart(self):
           try:
