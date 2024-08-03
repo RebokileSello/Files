@@ -39,9 +39,9 @@ class salesClass:
 
           #===Bill Area
           self.bill_frame = Frame(self.root, bd=3, relief=RIDGE)
-          self.bill_frame.place(x=400, y=140, width=450, height=330)
+          self.bill_frame.place(x=400, y=140, width=507, height=330)
           scrolly2=Scrollbar(self.bill_frame, orient=VERTICAL)
-          self.bill_area = Text(self.bill_frame, font=("goudy old style", 15), bg="lightyellow", yscrollcommand=scrolly2.set)
+          self.bill_area = Text(self.bill_frame, bg="lightyellow", yscrollcommand=scrolly2.set)
 
           lbl_title2=Label(self.bill_frame, text="Customer Bill Area", font=("goudy old style", 20), bg="orange").pack(side=TOP, fill=X)
 
@@ -53,14 +53,15 @@ class salesClass:
           #===Image
           try:
             self.billLogo = Image.open("Blackhole.jpg")
-            self.billLogo = self.billLogo.resize((320, 325))
+            self.billLogo = self.billLogo.resize((280, 325))
             self.billLogo = ImageTk.PhotoImage(self.billLogo)
           except FileNotFoundError:
             messagebox.showerror("Error", "Image file 'Drogon.jpeg' not found.")
 
           lbl_image=Label(self.root, image=self.billLogo)
-          lbl_image.place(x=860, y=140)
+          lbl_image.place(x=910, y=140)
 
+          
           self.show()
 
 

@@ -1,0 +1,21 @@
+
+		Inventory Management System
+	 Phone No. +26663873629     Roma, Lesotho
+============================================================
+ Customer Name: Rebokile Sello
+ Phone No. +26657415133
+ Bill No. 270720241657		Date: 27/07/2024
+============================================================
+ Barcode    Product Name		Car Name  		Model  		QTY Price
+============================================================
+          
+ 357754243	Steering Rack	Toyota  GD-6 2024  1 8000.0
+============================================================
+ Bill Amount				M8000.0
+ Discount				M0.0
+ Net Pay				M8000.0
+============================================================
+
+ Thank You for shopping with us!
+ Your were assisted by: [Employee Name]
+          

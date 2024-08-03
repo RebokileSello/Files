@@ -242,7 +242,7 @@ class productClass:
             if self.var_product_name.get() == "":
                 messagebox.showerror("Error", "Please Select a Product from the list!", parent=self.root)
             else:
-                 cur.execute("SELECT barcode FROM product WHERE product_name=? OR car_name=? OR model=?", 
+                 cur.execute("SELECT barcode FROM product WHERE product_name=? AND car_name=? AND model=?", 
                     (self.var_product_name.get(), self.var_car_name.get(), self.var_model.get()))
                  barcode = cur.fetchone()
                  if barcode is None:
