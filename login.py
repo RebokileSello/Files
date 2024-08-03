@@ -71,6 +71,8 @@ class Login_System:
                         os.system("python billing.py")
         except Exception as ex:
             messagebox.showerror("Error", f"Error due to: {str(ex)}", parent=self.root)
+        finally:
+            con.close()
 
     def forget_window(self):
         con = sqlite3.connect(database=r'pos.db')
@@ -115,6 +117,8 @@ class Login_System:
                         self.btn_update.place(x=150, y=300, width=100, height=30)
         except Exception as ex:
             messagebox.showerror("Error!", f"Error due to: {str(ex)}", parent=self.root)
+        finally:
+            con.close()
 
     def validate_otp(self):
         if int(self.otp)==int(self.var_otp.get()):
@@ -152,10 +156,14 @@ class Login_System:
             con = sqlite3.connect(database=r'pos.db')
         cur = con.cursor()
         try:
-            cur.execute("Update employee password=? where empID=?", (self.var_new_password.get(), self.employeeID.get()))
+            cur.execute("Update employee SET password=? where empID=?", (self.var_new_password.get(), self.employeeID.get()))
             con.commit()
+            messagebox.showinfo("Success!", "Password Updated Successfully!", parent=self.forget_win)
+            self.forget_win.destroy()
         except Exception as ex:
             messagebox.showerror("Error!", f"Error due to: {str(ex)}", parent=self.root)
+        finally:
+            con.close()
 
 
 
